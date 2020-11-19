@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class DatabaseManager {
     public static DataSource connect() throws  SQLException, IOException {
-        String propFileName = "resources /connection.properties";
+        String propFileName = "resources/connection.properties";
         InputStream input = new FileInputStream(propFileName);
         Properties properties = new Properties();
         properties.load(input);
