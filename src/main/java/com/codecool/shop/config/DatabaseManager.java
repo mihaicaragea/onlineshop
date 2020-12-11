@@ -16,7 +16,6 @@ public class DatabaseManager {
         Properties properties = new Properties();
         properties.load(input);
 
-
         PGSimpleDataSource dataSource = new PGSimpleDataSource();
 
         dataSource.setDatabaseName(properties.getProperty("database"));

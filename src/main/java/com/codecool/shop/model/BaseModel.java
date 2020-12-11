@@ -27,7 +27,7 @@ public class BaseModel {
         this.id = id;
     }
 
-    public String getName() {
+    public  String getName() {
         return name;
     }
 
