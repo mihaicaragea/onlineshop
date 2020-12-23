@@ -77,16 +77,13 @@ public class ProductDaoDB  implements ProductDao {
             PreparedStatement st = conn.prepareStatement(sql);
             st.setInt(1, productCategory.getId());
             ResultSet rs = st.executeQuery();
-            System.out.println("after query");
             while(rs.next()){
                 Supplier supplier = new Supplier(rs.getString(9),rs.getString(10));
                 supplier.setId(rs.getInt(8));
-                System.out.println(supplier.getName());
                 Product product = new Product(rs.getString(2),rs.getFloat(4), rs.getString(5), rs.getString(3), productCategory, supplier);
                 product.setId(rs.getInt(1));
                 listOfProducts.add(product);
             }
-            System.out.println(listOfProducts);
             return listOfProducts;
 
         } catch (SQLException throwable) {

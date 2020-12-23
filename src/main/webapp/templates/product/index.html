@@ -25,7 +25,7 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
-    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+<!--    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />-->
 </head>
 
 <body>
@@ -36,7 +36,15 @@
 
 <div class="container">
     <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+        <form action="">
+            <select name="category" id="cars" >
+                <option value="1">Tablets</option>
+                <option value="2">Smartphones</option>
+                <option value="3">Smartwatches</option>
+                <option value="4">Tv</option>
+            </select>
+            <input type="submit">
+        </form>
     </div>
 
     <div id="products" class="row">
@@ -62,6 +70,7 @@
 </div>
 
 <div th:replace="footer.html :: copy"></div>
+<script src="/static/js/main.js"></script>
 
 </body>
 </html>

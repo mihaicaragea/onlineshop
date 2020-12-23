@@ -35,10 +35,7 @@ public class ProductCategoryDaoDB  implements ProductCategoryDao {
             statement.setString(1, category.getName());
             statement.setString(2, category.getDescription());
             statement.setString(3, category.getDepartment());
-
-
             statement.executeUpdate();
-
             ResultSet resultSet = statement.getGeneratedKeys();
             resultSet.next();
             category.setId(resultSet.getInt(1));

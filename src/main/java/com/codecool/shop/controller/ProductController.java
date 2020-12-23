@@ -19,23 +19,27 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/"})
 public class ProductController extends HttpServlet {
-
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductDao productDataStore = ProductDaoDB.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoDB.getInstance();
+        int category_id =  1;
+
+        if (req.getParameter("category")!=null){
+            category_id = Integer.parseInt(req.getParameter("category"));
+        }
+
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        context.setVariable("category", productCategoryDataStore.find(4));
-        context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(4)));
+        context.setVariable("category", productCategoryDataStore.find(category_id));
+        context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(category_id)));
         // // Alternative setting of the template context
         // Map<String, Object> params = new HashMap<>();
         // params.put("category", productCategoryDataStore.find(1));
         // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         // context.setVariables(params);
+        System.out.println("end");
         engine.process("product/index.html", context, resp.getWriter());
     }
 
