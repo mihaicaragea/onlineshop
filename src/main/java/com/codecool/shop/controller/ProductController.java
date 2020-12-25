@@ -24,7 +24,6 @@ public class ProductController extends HttpServlet {
         ProductDao productDataStore = ProductDaoDB.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoDB.getInstance();
         int category_id =  1;
-
         if (req.getParameter("category")!=null){
             category_id = Integer.parseInt(req.getParameter("category"));
         }
@@ -34,12 +33,6 @@ public class ProductController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("category", productCategoryDataStore.find(category_id));
         context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(category_id)));
-        // // Alternative setting of the template context
-        // Map<String, Object> params = new HashMap<>();
-        // params.put("category", productCategoryDataStore.find(1));
-        // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
-        // context.setVariables(params);
-        System.out.println("end");
         engine.process("product/index.html", context, resp.getWriter());
     }
 

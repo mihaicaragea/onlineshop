@@ -31,7 +31,6 @@ public class Register extends HttpServlet {
 
         response.sendRedirect("/index");
 
-
     }
 
 

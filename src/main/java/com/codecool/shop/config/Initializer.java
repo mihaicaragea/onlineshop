@@ -3,12 +3,14 @@ package com.codecool.shop.config;
 import com.codecool.shop.dao.DBImplimentation.ProductCategoryDaoDB;
 import com.codecool.shop.dao.DBImplimentation.ProductDaoDB;
 import com.codecool.shop.dao.DBImplimentation.SupplierDaoDB;
+import com.codecool.shop.dao.DBImplimentation.UserDaoDB;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.dao.MemoryImplementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.MemoryImplementation.ProductDaoMem;
 import com.codecool.shop.dao.MemoryImplementation.SupplierDaoMem;
+import com.codecool.shop.dao.UserDao;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
@@ -35,7 +37,7 @@ public class Initializer implements ServletContextListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        UserDao userDataStore = new UserDaoDB(dataSource);
 
 //        ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductDao productDataStore =  new ProductDaoDB(dataSource);
