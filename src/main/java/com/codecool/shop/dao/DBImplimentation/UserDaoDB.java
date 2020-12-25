@@ -45,4 +45,23 @@ public class UserDaoDB  implements UserDao {
         }
 
     }
+
+    @Override
+    public User getByEmail(String email) {
+        try (Connection conn = dataSource.getConnection()) {
+            String sql = "SELECT * FROM registered_users WHERE email = ?";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            if (!rs.next()) {
+                return null;
+            }
+            User user = new User(rs.getString("first_name"), rs.getString("last_name"), rs.getString("country"), rs.getString("address"), rs.getString("postcode"), rs.getString("town"), rs.getString("phone"), rs.getString("email"), rs.getString("password"));
+            user.setId(rs.getInt(1));
+            return user;
+
+        } catch (SQLException throwable) {
+            throw new RuntimeException("Error while trying to find a user. " + throwable, throwable);
+        }
+    }
 }
