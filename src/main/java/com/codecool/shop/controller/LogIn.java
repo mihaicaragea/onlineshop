@@ -26,6 +26,9 @@ public class LogIn extends HttpServlet {
         if(!password.equals(dbUser.getPassword())){
             System.out.println("wrong password");
         }else {
+            request.getSession().setAttribute("user", dbUser.getFirstName());
+            request.getSession().setAttribute("userId", dbUser.getId());
+
             response.sendRedirect("/index");
         }
 
