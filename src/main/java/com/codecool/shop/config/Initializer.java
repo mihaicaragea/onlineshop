@@ -37,7 +37,6 @@ public class Initializer implements ServletContextListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        UserDao userDataStore = new UserDaoDB(dataSource);
 
 //        ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductDao productDataStore =  new ProductDaoDB(dataSource);
