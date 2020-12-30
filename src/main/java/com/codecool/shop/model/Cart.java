@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Cart {
     private int id;
     private int userId;
-    private ArrayList products = new ArrayList();
+    private ArrayList<CartItem> products = new ArrayList();
 
     public Cart (int userId){
         this.userId = userId;
@@ -27,7 +27,7 @@ public class Cart {
         this.userId = userId;
     }
 
-    public ArrayList getProducts() {
+    public ArrayList<CartItem> getProducts() {
         return products;
     }
 

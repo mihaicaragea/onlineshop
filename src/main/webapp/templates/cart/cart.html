@@ -55,14 +55,14 @@
             </tr>
             <tr th:each="product: ${cart}">
                 <td th:text="${product.getName()}"></td>
-                <td th:text="${product.getDefaultPrice()}" id="productPrice"></td>
-                <td th:text="${quantity.get(product.getId())}"></td>
+                <td th:text="${product.getproductId}" id="productPrice"></td>
+                <td th:text="${product.getQuantity}"></td>
                 <form action="/cart" method="post">
                     <td>
                         <div>
                             <div class="number-input md-number-input">
-                                <input class="quantity" min="1" name="quantity" th:value="${quantity.get(product.getId())}" type="number" id="modifiedQuantity">
-                                <input type="hidden" th:value="${product.getId()}" name="productId">
+<!--                                <input class="quantity" min="1" name="quantity" th:value="${quantity.get(product.getId())}" type="number" id="modifiedQuantity">-->
+<!--                                <input type="hidden" th:value="${product.getId()}" name="productId">-->
                                 <button class="plus increase" name="button" value="-">-</button>
                                 <button class="plus increase" name="button" value="+">+</button>
                             </div>
@@ -76,7 +76,7 @@
         </table>
         <div class="total-container">
             <h3>Total:  </h3>
-            <h3 th:text="${totalOrderAmount}" id="total"></h3>
+<!--            <h3 th:text="${totalOrderAmount}" id="total"></h3>-->
         </div>
     </div>
     <div class="cart-buttons">

@@ -1,6 +1,7 @@
 package com.codecool.shop.model;
 
 public class CartItem {
+    private int productId;
     private String name;
     private float defaultPrice;
     private int quantity;
@@ -8,11 +9,21 @@ public class CartItem {
 
 
 
-    public CartItem(String name, float defaultPrice, String defaultCurrency, int quantity){
+    public CartItem(int ID, String name, float defaultPrice, String defaultCurrency, int quantity){
+        this.productId =ID;
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.defaultCurrency = defaultCurrency;
         this.quantity = quantity;
+    }
+
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productcId) {
+        this.productId = productcId;
     }
 
     public String getName() {

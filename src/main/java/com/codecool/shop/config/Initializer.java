@@ -36,6 +36,7 @@ public class Initializer implements ServletContextListener {
         }
 
         CartDaoDB cartDaoDBDataStore = new CartDaoDB(dataSource);
+        UserDao userDaoDataStore = new UserDaoDB(dataSource);
 
 //        ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductDao productDataStore =  new ProductDaoDB(dataSource);

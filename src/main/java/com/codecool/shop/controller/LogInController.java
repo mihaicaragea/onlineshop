@@ -17,6 +17,7 @@ public class LogInController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
+
         UserDao userDataStore = UserDaoDB.getInstance();
         User dbUser = userDataStore.getByEmail(email);
 
