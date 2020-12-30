@@ -27,13 +27,11 @@ public class CartController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         String addToCart = req.getParameter("addBtn");
+        String plusButton = req.getParameter("PlusButton");
+        String minusButton = req.getParameter("MinusButton");
 
         int userID = (int) req.getSession().getAttribute("userId");
-
-
         Cart cart = cartDataStore.getCartByUserId(userID);
-
-
 
         if(addToCart!=null){
             int productId = Integer.parseInt(req.getParameter("productId"));
@@ -47,6 +45,20 @@ public class CartController extends HttpServlet {
             }
             cartDataStore.addProductToCart(productId, cart);
             resp.sendRedirect("/index");
+        }
+
+
+        if(plusButton!=null){
+            int productId = Integer.parseInt(req.getParameter("productId"));
+            cartDataStore.increaseProductQuantity(productId, cart);
+            resp.sendRedirect("/cart");
+        }
+
+        if (minusButton!=null){
+            int productId = Integer.parseInt(req.getParameter("productId"));
+            cartDataStore.decreaseProductQuantity(productId, cart);
+            resp.sendRedirect("/cart");
+
         }
 
         context.setVariable("cart", cart.getProducts());

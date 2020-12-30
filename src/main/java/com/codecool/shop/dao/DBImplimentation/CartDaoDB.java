@@ -9,6 +9,8 @@ import com.codecool.shop.model.Supplier;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CartDaoDB implements CartDao {
@@ -50,6 +52,7 @@ public class CartDaoDB implements CartDao {
                 listOfItems.add(cart_item);
                 cart.setId(rs.getInt(6));
             }
+            listOfItems.sort(Comparator.comparing(CartItem::getProductId));
             cart.setProducts(listOfItems);
             return cart;
 
@@ -87,7 +90,6 @@ public class CartDaoDB implements CartDao {
             st.setInt(2, productId);
             st.executeUpdate();
 
-            System.out.println("done");
         } catch (SQLException throwable) {
             throw new RuntimeException("Error while updating a product in the cart. " + throwable, throwable);
         }
@@ -99,6 +101,17 @@ public class CartDaoDB implements CartDao {
 
     @Override
     public void decreaseProductQuantity(int productId,Cart cart) {
+
+        try(Connection conn = dataSource.getConnection()) {
+            String sql = "UPDATE cart_item SET quantity = quantity - 1 WHERE cart_id = ? AND product_id = ?";
+            PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st.setInt(1,cart.getId() );
+            st.setInt(2, productId);
+            st.executeUpdate();
+
+        } catch (SQLException throwable) {
+            throw new RuntimeException("Error while updating a product in the cart. " + throwable, throwable);
+        }
 
     }
 }
