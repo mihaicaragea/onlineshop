@@ -32,6 +32,7 @@
     <!------ Include the above in your HEAD tag ---------->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
 
 </head>
 
@@ -67,7 +68,7 @@
                     </div>
                 </td>
                 <td>
-                    <button class="btn btn-primary" name="button" value="remove">Remove</button>
+                    <button class="btn btn-primary" name="button" value="remove"><a th:href="@{/cart(productId=${product.getProductId()},RemoveButton='True')}">Remove</a></button>
                 </td>
             </tr>
         </table>

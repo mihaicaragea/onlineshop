@@ -6,6 +6,7 @@ public interface CartDao  {
     void create(Cart cart);
     Cart getCartByUserId(int userId);
     void addProductToCart(int productId,Cart cart);
-    void increaseProductQuantity(int productId,Cart cart);
-    void decreaseProductQuantity(int productId,Cart cart);
+    void increaseProductQuantity(int productId, Cart cart);
+    void decreaseProductQuantity(int productId, Cart cart);
+    void deleteProductFromCart(int productId, Cart cart);
 }

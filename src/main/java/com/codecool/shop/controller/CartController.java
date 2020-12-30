@@ -29,13 +29,16 @@ public class CartController extends HttpServlet {
         String addToCart = req.getParameter("addBtn");
         String plusButton = req.getParameter("PlusButton");
         String minusButton = req.getParameter("MinusButton");
+        String removeButton = req.getParameter("RemoveButton");
 
         int userID = (int) req.getSession().getAttribute("userId");
+
         Cart cart = cartDataStore.getCartByUserId(userID);
+        ArrayList<CartItem> products = cart.getProducts();
+
 
         if(addToCart!=null){
             int productId = Integer.parseInt(req.getParameter("productId"));
-            ArrayList<CartItem> products = cart.getProducts();
             for(CartItem product : products){
                 if(product.getProductId()==productId){
                     cartDataStore.increaseProductQuantity(productId,cart);
@@ -57,10 +60,24 @@ public class CartController extends HttpServlet {
         if (minusButton!=null){
             int productId = Integer.parseInt(req.getParameter("productId"));
             cartDataStore.decreaseProductQuantity(productId, cart);
+            cart = cartDataStore.getCartByUserId(userID);
+            products = cart.getProducts();
+            for(CartItem product:products){
+                if(product.getQuantity()<=0){
+                    cartDataStore.deleteProductFromCart(productId, cart);
+                }
+            }
             resp.sendRedirect("/cart");
-
         }
 
+        if(removeButton!=null){
+            int productId = Integer.parseInt(req.getParameter("productId"));
+            cartDataStore.deleteProductFromCart(productId,cart);
+            resp.sendRedirect("/cart");
+        }
+
+
+        
         context.setVariable("cart", cart.getProducts());
         engine.process("cart/cart.html", context, resp.getWriter());
 
