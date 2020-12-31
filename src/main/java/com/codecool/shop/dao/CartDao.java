@@ -1,9 +1,10 @@
 package com.codecool.shop.dao;
 
 import com.codecool.shop.model.Cart;
+import com.codecool.shop.model.User;
 
 public interface CartDao  {
-    void create(Cart cart);
+    void create(User user);
     Cart getCartByUserId(int userId);
     void addProductToCart(int productId,Cart cart);
     void increaseProductQuantity(int productId, Cart cart);

@@ -1,5 +1,7 @@
 package com.codecool.shop.controller;
 
+import com.codecool.shop.dao.CartDao;
+import com.codecool.shop.dao.DBImplimentation.CartDaoDB;
 import com.codecool.shop.dao.DBImplimentation.UserDaoDB;
 import com.codecool.shop.dao.UserDao;
 import com.codecool.shop.model.User;
@@ -27,7 +29,10 @@ public class RegisterController extends HttpServlet {
         User newUser = new User(firstName,lastName,country, address, postcode, town, phone, email, password);
 
         UserDao userDataStore = UserDaoDB.getInstance();
+        CartDao cartDataStore = CartDaoDB.getInstance();
+
         userDataStore.add(newUser);
+        cartDataStore.create(newUser);
 
         response.sendRedirect("/index");
 

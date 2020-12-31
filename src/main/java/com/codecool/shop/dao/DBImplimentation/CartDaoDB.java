@@ -1,17 +1,12 @@
 package com.codecool.shop.dao.DBImplimentation;
 
 import com.codecool.shop.dao.CartDao;
-import com.codecool.shop.model.Cart;
-import com.codecool.shop.model.CartItem;
-import com.codecool.shop.model.Product;
-import com.codecool.shop.model.Supplier;
+import com.codecool.shop.model.*;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class CartDaoDB implements CartDao {
     private final DataSource dataSource;
@@ -28,7 +23,19 @@ public class CartDaoDB implements CartDao {
     }
 
     @Override
-    public void create(Cart cart) {
+    public void create(User user){
+        try(Connection conn = dataSource.getConnection()) {
+            String sql = "INSERT INTO cart(user_id) VALUES (?)";
+            PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st.setInt(1, user.getId());
+            st.executeUpdate();
+            ResultSet rs = st.getGeneratedKeys();
+            rs.next();
+
+        } catch (SQLException throwable) {
+            throw new RuntimeException("Error while adding new product " + throwable, throwable);
+        }
+
 
     }
 
