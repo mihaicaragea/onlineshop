@@ -46,18 +46,19 @@
     </ul>
 </nav>
 
-<div class="container">
+<div  class="container">
     <div class="card">
         <table class="table" style="text-align: center">
             <tr>
                 <th>Product name</th>
                 <th>Product price</th>
                 <th>Quantity</th>
+                <th>Total Price</th>
             </tr>
-            <tr th:each="product: ${cart}">
+            <tr th:each="product: ${cart.getProducts()}">
                 <td th:text="${product.getName()}"></td>
-                <td th:text="${product.getproductId}" id="productPrice"></td>
-                <td th:text="${product.getQuantity}"></td>
+                <td th:text="${product.getDefaultPrice()} + ${product.getDefaultCurrency()}" id="productPrice"></td>
+<!--                <td th:text="${product.getDefaultCurrency()}"></td>-->
                 <td>
                     <div>
                         <div class="number-input md-number-input">
@@ -68,13 +69,19 @@
                     </div>
                 </td>
                 <td>
+                    <div th:with="result=${product.getDefaultPrice() * product.getQuantity()}">
+                        <span th:text="${result + product.getDefaultCurrency()}"></span>
+                    </div>
+                </td>
+                <td>
                     <button class="btn btn-primary" name="button" value="remove"><a th:href="@{/cart(productId=${product.getProductId()},RemoveButton='True')}">Remove</a></button>
                 </td>
             </tr>
         </table>
-        <div class="total-container">
+        <div class="total-container" style="display: flex">
             <h3>Total:  </h3>
-<!--            <h3 th:text="${totalOrderAmount}" id="total"></h3>-->
+            <h3 th:text="${cart.getTotalPrice()}" id="total"> </h3>
+            <h3>USD</h3>
         </div>
     </div>
     <div class="cart-buttons">

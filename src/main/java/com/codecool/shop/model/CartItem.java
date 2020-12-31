@@ -4,8 +4,8 @@ public class CartItem {
     private int productId;
     private String name;
     private float defaultPrice;
-    private int quantity;
     private String defaultCurrency;
+    private int quantity;
 
 
 
@@ -57,4 +57,6 @@ public class CartItem {
     public void setDefaultCurrency(String defaultCurrency) {
         this.defaultCurrency = defaultCurrency;
     }
+
+
 }

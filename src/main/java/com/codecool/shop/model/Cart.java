@@ -6,6 +6,18 @@ public class Cart {
     private int id;
     private int userId;
     private ArrayList<CartItem> products = new ArrayList();
+    private float totalPrice;
+    private int numberOfItems;
+
+
+    public int getNumberOfItems() {
+        int sumOfQuantity=0;
+
+        for(CartItem item:products){
+            sumOfQuantity= sumOfQuantity+item.getQuantity();
+        }
+        return sumOfQuantity;
+    }
 
     public Cart (int userId){
         this.userId = userId;
@@ -33,5 +45,12 @@ public class Cart {
 
     public void setProducts(ArrayList products) {
         this.products = products;
+    }
+
+    public float getTotalPrice(){
+        for(CartItem item:products){
+            totalPrice=totalPrice+(item.getQuantity()*item.getDefaultPrice());
+        }
+        return totalPrice;
     }
 }

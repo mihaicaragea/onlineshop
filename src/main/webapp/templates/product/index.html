@@ -44,28 +44,17 @@
         <!-- Right -->
         <ul class="navbar-nav ml-auto">
             <div class="collapse navbar-collapse" id="basicExampleNav6">
-
                 <!-- Right -->
-                <ul class="navbar-nav nav-flex-icons ml-auto">
-                    <li class="nav-item dropdown notifications-nav pr-md-3">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink151" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="true">
-                            <p class="badge badge-pill bg-danger" th:text="${0}" style="color: white"></p>
-                            <span><i class="fas fa-shopping-cart pl-0"></i></span>
-                        </a>
-                    </li>
-                </ul>
-
+                <div th:if="${session.user}">
+                    <a th:href="@{/cart}" style="text-decoration: none">
+                        <button class="btn btn-secondary filtersBtn">
+                            Check cart
+                            <i class="fa fa-shopping-cart" style="font-size:1.2em"></i>
+                            <span th:text="${numberOfItems}" class="badge badge-pill badge-danger"></span>
+                        </button>
+                    </a>
+                </div
             </div>
-            <li class="nav-item">
-                <a th:href="@{/cart}" class="nav-link waves-effect">
-                    Cart
-                </a>
-            </li>
-            <a href="#!" class="nav-link waves-effect" data-toggle="modal" data-target="#modalContactForm">
-                Contact
-            </a>
-            </li>
             <div th:with="userToCheck = ${session.user}" style="display: flex">
                 <div th:if="${userToCheck}" style="display: flex">
                     <li class="nav-item">
