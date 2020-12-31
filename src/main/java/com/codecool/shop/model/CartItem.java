@@ -3,9 +3,8 @@ package com.codecool.shop.model;
 public class CartItem {
     private int productId;
     private String name;
-    private float defaultPrice;
-    private String defaultCurrency;
-    private int quantity;
+    private final float defaultPrice;
+    private  int quantity;
 
 
 
@@ -13,7 +12,6 @@ public class CartItem {
         this.productId =ID;
         this.name = name;
         this.defaultPrice = defaultPrice;
-        this.defaultCurrency = defaultCurrency;
         this.quantity = quantity;
     }
 
@@ -38,25 +36,11 @@ public class CartItem {
         return defaultPrice;
     }
 
-    public void setDefaultPrice(float defaultPrice) {
-        this.defaultPrice = defaultPrice;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
-    public String getDefaultCurrency() {
-        return defaultCurrency;
-    }
-
-    public void setDefaultCurrency(String defaultCurrency) {
-        this.defaultCurrency = defaultCurrency;
-    }
 
 
 }

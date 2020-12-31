@@ -5,8 +5,6 @@ import com.codecool.shop.dao.DBImplimentation.CartDaoDB;
 import com.codecool.shop.dao.DBImplimentation.UserDaoDB;
 import com.codecool.shop.dao.UserDao;
 import com.codecool.shop.model.User;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +13,7 @@ import java.io.IOException;
 
 @WebServlet(name = "Register", urlPatterns = {"/register"})
 public class RegisterController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String country = request.getParameter("country");
@@ -35,12 +33,6 @@ public class RegisterController extends HttpServlet {
         cartDataStore.create(newUser);
 
         response.sendRedirect("/index");
-
-    }
-
-
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }

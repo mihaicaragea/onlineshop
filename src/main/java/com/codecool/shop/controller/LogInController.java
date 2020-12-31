@@ -3,8 +3,6 @@ package com.codecool.shop.controller;
 import com.codecool.shop.dao.DBImplimentation.UserDaoDB;
 import com.codecool.shop.dao.UserDao;
 import com.codecool.shop.model.User;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "LogIn", urlPatterns = {"/login"})
 public class LogInController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -30,10 +28,6 @@ public class LogInController extends HttpServlet {
             response.sendRedirect("/index");
         }
 
-
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

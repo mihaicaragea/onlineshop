@@ -1,6 +1,6 @@
 package com.codecool.shop.model;
 
-import java.util.Currency;
+
 
 public class Product extends BaseModel {
 
@@ -21,17 +21,11 @@ public class Product extends BaseModel {
         return defaultPrice;
     }
 
-    public void setDefaultPrice(float defaultPrice) {
-        this.defaultPrice = defaultPrice;
-    }
 
     public String getDefaultCurrency() {
         return defaultCurrency;
     }
 
-    public void setDefaultCurrency(String defaultCurrency) {
-        this.defaultCurrency = defaultCurrency;
-    }
 
     public String getPrice() {
         return String.valueOf(this.defaultPrice) + " " + this.defaultCurrency.toString();

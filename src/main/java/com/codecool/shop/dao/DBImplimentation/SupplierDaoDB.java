@@ -3,23 +3,15 @@ package com.codecool.shop.dao.DBImplimentation;
 import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.model.Supplier;
 
-import com.codecool.shop.dao.ProductCategoryDao;
-import com.codecool.shop.model.Product;
-import com.codecool.shop.model.ProductCategory;
-import com.codecool.shop.model.Supplier;
-
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
+
 import java.util.List;
 
-import javax.sql.DataSource;
-import java.sql.*;
-import java.util.List;
 
 public class SupplierDaoDB  implements SupplierDao {
-    private DataSource dataSource;
-    private SupplierDaoDB instance;
+    private final DataSource dataSource;
+    private final SupplierDaoDB instance;
 
     public SupplierDaoDB(DataSource dataSource){
         this.dataSource = dataSource;

@@ -1,7 +1,6 @@
 package com.codecool.shop.dao.DBImplimentation;
 
 import com.codecool.shop.dao.UserDao;
-import com.codecool.shop.model.Supplier;
 import com.codecool.shop.model.User;
 
 import javax.sql.DataSource;

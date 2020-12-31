@@ -11,12 +11,11 @@ public class Cart {
 
 
     public int getNumberOfItems() {
-        int sumOfQuantity=0;
 
         for(CartItem item:products){
-            sumOfQuantity= sumOfQuantity+item.getQuantity();
+            numberOfItems= numberOfItems+item.getQuantity();
         }
-        return sumOfQuantity;
+        return numberOfItems;
     }
 
     public Cart (int userId){
