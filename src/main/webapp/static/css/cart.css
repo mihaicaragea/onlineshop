@@ -1,0 +1,62 @@
+.table td{
+    text-align: center;
+    vertical-align: middle;
+}
+.container{
+    margin-top: 50px;
+}
+
+.cart-img{
+    width: 80px;
+    height: 65px;
+}
+
+.quantity {
+    vertical-align: middle;
+
+
+}
+.
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-btn{
+    border: none;
+    background: none;
+}
+.quantity-btn a{
+    color: black;
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+.remove-btn{
+    border: none;
+    background: none;
+
+}
+.remove-btn a{
+    color: black;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.total-container{
+    width: 20%;
+    margin-left: auto;
+}
+#currency{
+    margin: 5px 0;
+}
+
+.td-number{
+    font-size: 14px;
+    opacity: 0.8;
+}
+.total-container h3{
+    margin: 5px 3px 5px 5px;
+}

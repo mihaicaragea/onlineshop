@@ -6,6 +6,8 @@ public class CartItem {
     private final float defaultPrice;
     private  int quantity;
 
+    private String defaultCurrency;
+
 
 
     public CartItem(int ID, String name, float defaultPrice, String defaultCurrency, int quantity){
@@ -13,8 +15,12 @@ public class CartItem {
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.quantity = quantity;
+        this.defaultCurrency= " "+ defaultCurrency;
     }
 
+    public String getDefaultCurrency() {
+        return defaultCurrency;
+    }
 
     public int getProductId() {
         return productId;
