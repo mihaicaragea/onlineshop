@@ -13,11 +13,7 @@
 
 .quantity {
     vertical-align: middle;
-
-
 }
-.
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -46,11 +42,13 @@ input::-webkit-inner-spin-button {
 }
 
 .total-container{
+    display: flex;
+    align-items: center;
     width: 20%;
     margin-left: auto;
 }
 #currency{
-    margin: 5px 0;
+    margin: 0px;
 }
 
 .td-number{
@@ -58,5 +56,6 @@ input::-webkit-inner-spin-button {
     opacity: 0.8;
 }
 .total-container h3{
-    margin: 5px 3px 5px 5px;
+
+    margin: 0px 3px 0px 5px;
 }

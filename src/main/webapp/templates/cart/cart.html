@@ -26,8 +26,6 @@
     <!-- End of Bootstrap components -->
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
@@ -43,10 +41,12 @@
     <a class="navbar-brand ms-5 fs-1 fw-bold text-secondary"  th:href="@{/index}">OnlineShop</a>
     <div class="container-right d-flex justify-content-between">
         <div  class="user-container d-flex align-items-center justify-content-between" th:if="${session.user}" >
-            <a class="d-flex  align-items-center text-danger text-decoration-none fs-5" th:href="@{/cart}" style="text-decoration: none">Cart 
-                <span class="ms-1 badge rounded-pill bg-danger"   th:text="${cart.getNumberOfItems()}" >0</span>
-                <i class="fas fa-shopping-cart fs-6"></i>
-                </a>
+            <a  th:href="@{/cart}" style="text-decoration: none; display:flex;">Cart
+                <div class="cart-container">
+                    <i class="fas fa-shopping-cart fs-6"></i>
+                    <span class="ms-1 badge rounded-pill bg-danger"   th:text="${cart.getNumberOfItems()}" >0</span>
+                </div>
+            </a>
                 <h3 class="welcome-container text-secondary">Welcome <p th:text="${session.user}">  john</p></h3>
             <a href="/logout" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar ms-3 me-3 waves-effect waves-light">
                 Log out
@@ -80,7 +80,6 @@
             <td><img class="cart-img" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${product.getProductId()} + '.jpg'" alt="" /></td>
             <td th:text="${product.getName()}"></td>
             <td class="td-number" th:text="${product.getDefaultPrice()} + ${product.getDefaultCurrency()}" id="productPrice"></td>
-<!--                <td th:text="${product.getDefaultCurrency()}"></td>-->
             <td>
 
                 <div class="quantity">
@@ -103,16 +102,18 @@
         <h3>Total:  </h3>
         <h3 th:text="${cart.getTotalPrice()}" id="total"> </h3>
         <h3 id="currency">$</h3>
+        <div class="cart-buttons">
+            <div >
+                <a th:href="@{/checkout}">
+                    <button class="btn btn-primary" style="margin: 5px">Pay <i class="fab fa-paypal"></i></button>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
 
-<!--<div class="cart-buttons">-->
-<!--    <div >-->
-<!--        <a th:href="@{/checkout}">-->
-<!--            <button class="btn btn-primary" style="margin: 5px">Proceed to checkout</button>-->
-<!--        </a>-->
-<!--    </div>-->
+
 <!--    <div>-->
 <!--        <a th:href="@{/index}">-->
 <!--            <button class="btn btn-primary" style="margin: 5px">Go back</button>-->

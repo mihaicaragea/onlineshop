@@ -40,10 +40,14 @@
         <a class="navbar-brand ms-5 fs-1 fw-bold text-secondary"  th:href="@{/index}">OnlineShop</a>
         <div class="container-right d-flex justify-content-between">
             <div  class="user-container d-flex align-items-center justify-content-between" th:if="${session.user}" >
-                <a class="d-flex  align-items-center text-danger text-decoration-none fs-5" th:href="@{/cart}" style="text-decoration: none">Cart 
-                    <span class="ms-1 badge rounded-pill bg-danger"   th:text="${numberOfItems}" >0</span>
-                    <i class="fas fa-shopping-cart fs-6"></i>
-                 </a>
+    
+                <a  th:href="@{/cart}" style="text-decoration: none; display:flex;">Cart 
+                    <div class="cart-container">
+                        <i class="fas fa-shopping-cart fs-6"></i>
+                        <span class="ms-1 badge rounded-pill bg-danger"   th:text="${numberOfItems}" >0</span>
+                    </div>
+                </a>
+
                  <h3 class="welcome-container text-secondary">Welcome <p th:text="${session.user}">  john</p></h3>
                 <a href="/logout" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar ms-3 me-3 waves-effect waves-light">
                     Log out
@@ -74,74 +78,6 @@
         </ul>
     </div>
 
-
-
-
-    
-<!-- </nav>    -->
-
-
-    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="navbar-brand ms-5 fs-1 fw-bold"  th:href="@{/index}">OnlineShop</a>
-            </li>
-        </ul>
-    </div>
-
-
-
-        <ul class="navbar-nav ms-auto">
-            <div class="collapse navbar-collapse" id="basicExampleNav6">
-                <div th:if="${session.user}">
-                    <a th:href="@{/cart}" style="text-decoration: none"> Cart
-                        <i class="fas fa-shopping-cart"></i>
-                        <span th:text="${numberOfItems}" class="badge badge-pill badge-danger">0</span>
-                    </a>
-                </div>
-            </div>
-            <div th:with="userToCheck = ${session.user}" style="display: flex">
-                <div th:if="${userToCheck}" style="display: flex">
-                    <li class="nav-item">
-                        Welcome <p th:text="${session.user}"></p>
-                    </li>
-                    <li class="nav-item pl-2 mb-2 mb-md-0">
-                        <a href="/logout" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">
-                            Log out
-                        </a>
-                    </li>
-                </div>
-                <div th:unless="${userToCheck}" style="display: flex">
-                    <li class="nav-item">
-                        <a href="#" type="button" data-toggle="modal" data-target="#modalLoginForm"
-                           class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">
-                            Login
-                        </a>
-                    </li>
-                    <li class="nav-item pl-2 mb-2 mb-md-0">
-                        <a href="#!" type="button"
-                           class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light" data-toggle="modal" data-target="#modalRegisterForm">
-                            Sign up
-                        </a>
-                    </li>
-                </div>
-            </div>
-        </ul>
-
-    </div>
-
-</nav>
-<div class="dropdown ms-3">
-    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
-        Category
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <li><a class="dropdown-item" href="?category=1">Tablets</a></li>
-        <li><a class="dropdown-item" href="?category=2">Smartphones</a></li>
-        <li><a class="dropdown-item" href="?category=3">Smartwatches</a></li>
-        <li><a class="dropdown-item" href="?category=4">Tv</a></li>
-    </ul>
-</div> -->
 <div class="wrap-container">
     <div class="cards-container">
         <div class="cards" th:each="prod,iterStat : ${products}" >
