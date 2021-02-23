@@ -78,11 +78,10 @@ a shopping cart, checkout items and make payments.
 
 
 
-## Background materials
+![Captură de ecran din 2021-02-23 la 12 13 51](https://user-images.githubusercontent.com/61205164/108829551-fe001e00-75d0-11eb-8cff-3aa516d99c14.png)
+![Captură de ecran din 2021-02-23 la 12 13 05](https://user-images.githubusercontent.com/61205164/108829560-ffc9e180-75d0-11eb-8ad2-d0b6012e264c.png)
+![Captură de ecran din 2021-02-23 la 12 12 51](https://user-images.githubusercontent.com/61205164/108829562-00627800-75d1-11eb-8f21-43b7de44a6e0.png)
+![Captură de ecran din 2021-02-23 la 12 12 14](https://user-images.githubusercontent.com/61205164/108829565-0193a500-75d1-11eb-8121-889508ab031e.png)
+![Captură de ecran din 2021-02-23 la 12 11 45](https://user-images.githubusercontent.com/61205164/108829566-022c3b80-75d1-11eb-8c37-6cf6e4681972.png)
 
-- <i class="far fa-exclamation"></i> [Introducing servlets](project/curriculum/materials/pages/java/introducing-servlets.md)
-- <i class="far fa-exclamation"></i> [Servlet tutorial](https://www.tutorialspoint.com/servlets/servlets-form-data.htm)
-- <i class="far fa-exclamation"></i> [Java Dao pattern](https://www.baeldung.com/java-dao-pattern)
-- <i class="far fa-exclamation"></i> [Thymeleaf standard dialect](https://www.thymeleaf.org/doc/articles/standarddialect5minutes.html)
-- <i class="far fa-book-open"></i> [Thymeleaf introductions](https://www.thymeleaf.org/documentation.html#introductions)
->>>>>>> startproject/master
+
